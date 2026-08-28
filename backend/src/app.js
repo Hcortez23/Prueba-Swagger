@@ -1,5 +1,9 @@
 import cors from "cors";
 import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
+import swaggerUi from "swagger-ui-express";
+import YAML from "yamljs";
 import { errorHandler, notFound } from "./middlewares/errorMiddleware.js";
 
 import barcodeRoutes from "./routes/barcodeRoutes.js";
@@ -19,7 +23,21 @@ import closureDateRoutes from "./routes/closureDateRoutes.js";
 import fontRoutes from "./routes/fontRoutes.js";
 import userRoutes from "./routes/users.js";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const swaggerDocument = YAML.load(path.join(__dirname, "../swagger.yaml"));
+
 const app = express();
+
+// Documentación interactiva de la API (Swagger UI)
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+// Especificación en crudo (JSON), útil para clientes/herramientas externas
+app.get("/api-docs.json", (req, res) => {
+  res.setHeader("Content-Type", "application/json");
+  res.json(swaggerDocument);
+});
 
 app.use(
   cors({

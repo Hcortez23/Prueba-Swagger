@@ -1,0 +1,2835 @@
+{
+  "openapi" : "3.0.3",
+  "info" : {
+    "title" : "PruebaSwagger20240101",
+    "version" : "2",
+    "description" : "."
+  },
+  "servers" : [ {
+    "url" : "http://localhost:4000",
+    "description" : "Servidor local de desarrollo"
+  } ],
+  "tags" : [ {
+    "name" : "AnnouncementBar",
+    "description" : "Operaciones CRUD sobre el recurso AnnouncementBar."
+  }, {
+    "name" : "AnnouncementImage",
+    "description" : "Operaciones CRUD sobre el recurso AnnouncementImage."
+  }, {
+    "name" : "Banner",
+    "description" : "Operaciones CRUD sobre el recurso Banner."
+  }, {
+    "name" : "Category",
+    "description" : "Operaciones CRUD sobre el recurso Category."
+  }, {
+    "name" : "ClosureDate",
+    "description" : "Operaciones CRUD sobre el recurso ClosureDate."
+  }, {
+    "name" : "Font",
+    "description" : "Operaciones CRUD sobre el recurso Font."
+  }, {
+    "name" : "Notification",
+    "description" : "Operaciones CRUD sobre el recurso Notification."
+  }, {
+    "name" : "Order",
+    "description" : "Operaciones CRUD sobre el recurso Order."
+  }, {
+    "name" : "Product",
+    "description" : "Operaciones CRUD sobre el recurso Product."
+  }, {
+    "name" : "Setting",
+    "description" : "Operaciones CRUD sobre el recurso Setting."
+  }, {
+    "name" : "StoreHours",
+    "description" : "Operaciones CRUD sobre el recurso StoreHours."
+  }, {
+    "name" : "User",
+    "description" : "Operaciones CRUD sobre el recurso User."
+  } ],
+  "paths" : {
+    "/api/announcement-bars" : {
+      "get" : {
+        "tags" : [ "AnnouncementBar" ],
+        "summary" : "Consultar Anuncios",
+        "operationId" : "get-announcementbar",
+        "responses" : {
+          "200" : {
+            "description" : "Consulta exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/AnnouncementBar"
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Recurso no encontrado.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "AnnouncementBar" ],
+        "summary" : "Crear Anuncios",
+        "operationId" : "post-announcementbar",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/AnnouncementBar"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Creación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AnnouncementBar"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "AnnouncementBar" ],
+        "summary" : "Actualizar Anuncios",
+        "operationId" : "put-announcementbar",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a actualizar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/AnnouncementBar"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Modificación exitosa del registro.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AnnouncementBar"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "El id proporcionado en la consulta no fue encontrado en la BD.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "AnnouncementBar" ],
+        "summary" : "Eliminar Anuncios",
+        "operationId" : "delete-announcementbar",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a eliminar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Eliminación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/announcement-images" : {
+      "get" : {
+        "tags" : [ "AnnouncementImage" ],
+        "summary" : "Consultar AnnouncementImage",
+        "operationId" : "get-announcementimage",
+        "responses" : {
+          "200" : {
+            "description" : "Consulta exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/AnnouncementImage"
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Recurso no encontrado.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "AnnouncementImage" ],
+        "summary" : "Crear AnnouncementImage",
+        "operationId" : "post-announcementimage",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/AnnouncementImage"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Creación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AnnouncementImage"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "AnnouncementImage" ],
+        "summary" : "Actualizar AnnouncementImage",
+        "operationId" : "put-announcementimage",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a actualizar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/AnnouncementImage"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Modificación exitosa del registro.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/AnnouncementImage"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "El id proporcionado en la consulta no fue encontrado en la BD.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "AnnouncementImage" ],
+        "summary" : "Eliminar ImagenesAnuncios",
+        "operationId" : "delete-announcementimage",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a eliminar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Eliminación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/banners" : {
+      "get" : {
+        "tags" : [ "Banner" ],
+        "summary" : "Consultar Banner",
+        "operationId" : "get-banner",
+        "responses" : {
+          "200" : {
+            "description" : "Consulta exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Banner"
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Recurso no encontrado.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Banner" ],
+        "summary" : "Crear Banner",
+        "operationId" : "post-banner",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Banner"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Creación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Banner"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Banner" ],
+        "summary" : "Actualizar Banner",
+        "operationId" : "put-banner",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a actualizar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Banner"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Modificación exitosa del registro.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Banner"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "El id proporcionado en la consulta no fue encontrado en la BD.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Banner" ],
+        "summary" : "Eliminar Banner",
+        "operationId" : "delete-banner",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a eliminar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Eliminación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/categories" : {
+      "get" : {
+        "tags" : [ "Category" ],
+        "summary" : "Consultar Category",
+        "operationId" : "get-category",
+        "responses" : {
+          "200" : {
+            "description" : "Consulta exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Category"
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Recurso no encontrado.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Category" ],
+        "summary" : "Crear Category",
+        "operationId" : "post-category",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Category"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Creación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Category"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Category" ],
+        "summary" : "Actualizar Category",
+        "operationId" : "put-category",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a actualizar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Category"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Modificación exitosa del registro.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Category"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "El id proporcionado en la consulta no fue encontrado en la BD.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Category" ],
+        "summary" : "Eliminar Category",
+        "operationId" : "delete-category",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a eliminar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Eliminación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/closure-dates" : {
+      "get" : {
+        "tags" : [ "ClosureDate" ],
+        "summary" : "Consultar ClosureDate",
+        "operationId" : "get-closuredate",
+        "responses" : {
+          "200" : {
+            "description" : "Consulta exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/ClosureDate"
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Recurso no encontrado.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "ClosureDate" ],
+        "summary" : "Crear ClosureDate",
+        "operationId" : "post-closuredate",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/ClosureDate"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Creación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ClosureDate"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "ClosureDate" ],
+        "summary" : "Actualizar ClosureDate",
+        "operationId" : "put-closuredate",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a actualizar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/ClosureDate"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Modificación exitosa del registro.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ClosureDate"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "El id proporcionado en la consulta no fue encontrado en la BD.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "ClosureDate" ],
+        "summary" : "Eliminar ClosureDate",
+        "operationId" : "delete-closuredate",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a eliminar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Eliminación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/fonts" : {
+      "get" : {
+        "tags" : [ "CustomFont" ],
+        "summary" : "Consultar CustomFont",
+        "operationId" : "get-font",
+        "responses" : {
+          "200" : {
+            "description" : "Consulta exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Font"
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Recurso no encontrado.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "CustomFont" ],
+        "summary" : "Crear Fuentes",
+        "operationId" : "post-font",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Font"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Creación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Font"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "CustomFont" ],
+        "summary" : "Actualizar Fuentes",
+        "operationId" : "put-font",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a actualizar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Font"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Modificación exitosa del registro.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Font"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "El id proporcionado en la consulta no fue encontrado en la BD.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "CustomFont" ],
+        "summary" : "Eliminar Fuentes",
+        "operationId" : "delete-font",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a eliminar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Eliminación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/notifications" : {
+      "get" : {
+        "tags" : [ "Notification" ],
+        "summary" : "Consultar Notificaciones",
+        "operationId" : "get-notification",
+        "responses" : {
+          "200" : {
+            "description" : "Consulta exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Notification"
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Recurso no encontrado.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Notification" ],
+        "summary" : "Crear Notificaciones",
+        "operationId" : "post-notification",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Notification"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Creación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Notification"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Notification" ],
+        "summary" : "Actualizar Notificaciones",
+        "operationId" : "put-notification",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a actualizar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Notification"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Modificación exitosa del registro.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Notification"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "El id proporcionado en la consulta no fue encontrado en la BD.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Notification" ],
+        "summary" : "Eliminar Notificaciones",
+        "operationId" : "delete-notification",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a eliminar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Eliminación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/orders" : {
+      "get" : {
+        "tags" : [ "Order" ],
+        "summary" : "Consultar Pedidos",
+        "operationId" : "get-order",
+        "responses" : {
+          "200" : {
+            "description" : "Consulta exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Order"
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Recurso no encontrado.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Order" ],
+        "summary" : "Crear Pedidos",
+        "operationId" : "post-order",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Order"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Creación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Order"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Order" ],
+        "summary" : "Actualizar Pedidos",
+        "operationId" : "put-order",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a actualizar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Order"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Modificación exitosa del registro.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Order"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "El id proporcionado en la consulta no fue encontrado en la BD.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Order" ],
+        "summary" : "Eliminar Pedidos",
+        "operationId" : "delete-order",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a eliminar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Eliminación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/products" : {
+      "get" : {
+        "tags" : [ "Product" ],
+        "summary" : "Consultar Product",
+        "operationId" : "get-product",
+        "responses" : {
+          "200" : {
+            "description" : "Consulta exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Product"
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Recurso no encontrado.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Product" ],
+        "summary" : "Crear Productos",
+        "operationId" : "post-product",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Product"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Creación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Product"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Product" ],
+        "summary" : "Actualizar Productos",
+        "operationId" : "put-product",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a actualizar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Product"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Modificación exitosa del registro.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Product"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "El id proporcionado en la consulta no fue encontrado en la BD.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Product" ],
+        "summary" : "Eliminar Productos",
+        "operationId" : "delete-product",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a eliminar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Eliminación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/settings" : {
+      "get" : {
+        "tags" : [ "Settings" ],
+        "summary" : "Consultar Configuraciones",
+        "operationId" : "get-setting",
+        "responses" : {
+          "200" : {
+            "description" : "Consulta exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Setting"
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Recurso no encontrado.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Settings" ],
+        "summary" : "Crear Configuraciones",
+        "operationId" : "post-setting",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Setting"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Creación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Setting"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Settings" ],
+        "summary" : "Actualizar Configuraciones",
+        "operationId" : "put-setting",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a actualizar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Setting"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Modificación exitosa del registro.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Setting"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "El id proporcionado en la consulta no fue encontrado en la BD.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Settings" ],
+        "summary" : "Eliminar Configuraciones",
+        "operationId" : "delete-setting",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a eliminar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Eliminación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/store-hours" : {
+      "get" : {
+        "tags" : [ "StoreHours" ],
+        "summary" : "Consultar Horarios",
+        "operationId" : "get-storehours",
+        "responses" : {
+          "200" : {
+            "description" : "Consulta exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/StoreHours"
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Recurso no encontrado.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "StoreHours" ],
+        "summary" : "Crear Horarios",
+        "operationId" : "post-storehours",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/StoreHours"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Creación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/StoreHours"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "StoreHours" ],
+        "summary" : "Actualizar Horarios",
+        "operationId" : "put-storehours",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a actualizar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/StoreHours"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Modificación exitosa del registro.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/StoreHours"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "El id proporcionado en la consulta no fue encontrado en la BD.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "StoreHours" ],
+        "summary" : "Eliminar Horarios",
+        "operationId" : "delete-storehours",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a eliminar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Eliminación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users" : {
+      "get" : {
+        "tags" : [ "User" ],
+        "summary" : "Consultar Usuarios",
+        "operationId" : "get-user",
+        "responses" : {
+          "200" : {
+            "description" : "Consulta exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/User"
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Recurso no encontrado.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "Usuarios" ],
+        "summary" : "Crear Usuarios",
+        "operationId" : "post-user",
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Creación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "User" ],
+        "summary" : "Actualizar Usuarios",
+        "operationId" : "put-user",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a actualizar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "required" : true,
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Modificación exitosa del registro.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "El id proporcionado en la consulta no fue encontrado en la BD.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "User" ],
+        "summary" : "Eliminar Usuarios",
+        "operationId" : "delete-user",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "query",
+          "required" : true,
+          "description" : "Id del registro a eliminar.",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Eliminación exitosa.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500" : {
+            "description" : "Internal Server Error.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "AnnouncementBar" : {
+        "title" : "AnnouncementBar",
+        "type" : "object",
+        "properties" : {
+          "_id" : {
+            "type" : "string"
+          },
+          "text" : {
+            "type" : "string"
+          },
+          "imageUrl" : {
+            "type" : "string"
+          },
+          "imagePublicId" : {
+            "type" : "string"
+          },
+          "active" : {
+            "type" : "boolean",
+            "default" : true
+          },
+          "backgroundColor" : {
+            "type" : "string",
+            "default" : "#DC2626"
+          },
+          "textColor" : {
+            "type" : "string",
+            "default" : "#FFFFFF"
+          },
+          "animation" : {
+            "type" : "string",
+            "enum" : [ "none", "marquee", "pulse", "fadeIn", "slideFromTop", "bounce", "wobble", "heartbeat", "blink", "shake", "swing", "rubberBand", "flash", "jello" ],
+            "default" : "none"
+          },
+          "decoration" : {
+            "type" : "string",
+            "enum" : [ "none", "christmas", "halloween", "valentines", "mothers_day", "fathers_day", "black_week", "easter", "new_year", "independence_sv", "birthday", "august_fest" ],
+            "default" : "none"
+          },
+          "height" : {
+            "type" : "number",
+            "default" : 40
+          },
+          "fontSize" : {
+            "type" : "number",
+            "default" : 13
+          },
+          "createdAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "AnnouncementImage" : {
+        "title" : "AnnouncementImage",
+        "type" : "object",
+        "required" : [ "url", "public_id" ],
+        "properties" : {
+          "_id" : {
+            "type" : "string"
+          },
+          "url" : {
+            "type" : "string"
+          },
+          "public_id" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "Banner" : {
+        "title" : "Banner",
+        "type" : "object",
+        "description" : "`imageUrl` es requerido si type=image; `images` (2 a 12 elementos) si type=collage; `videoUrl`/`videoDuration` si type=video.",
+        "properties" : {
+          "_id" : {
+            "type" : "string"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "image", "video", "collage" ],
+            "default" : "image"
+          },
+          "imageUrl" : {
+            "type" : "string"
+          },
+          "images" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "videoUrl" : {
+            "type" : "string"
+          },
+          "videoDuration" : {
+            "type" : "number"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "subtitle" : {
+            "type" : "string"
+          },
+          "link" : {
+            "type" : "string"
+          },
+          "active" : {
+            "type" : "boolean",
+            "default" : true
+          },
+          "order" : {
+            "type" : "number",
+            "default" : 0
+          },
+          "createdAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "Subcategory" : {
+        "title" : "Subcategory",
+        "type" : "object",
+        "required" : [ "name", "slug" ],
+        "properties" : {
+          "_id" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "slug" : {
+            "type" : "string"
+          },
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            },
+            "default" : [ ]
+          }
+        }
+      },
+      "Category" : {
+        "title" : "Category",
+        "type" : "object",
+        "required" : [ "name" ],
+        "properties" : {
+          "_id" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "slug" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "subcategories" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/Subcategory"
+            }
+          },
+          "featured" : {
+            "type" : "boolean",
+            "default" : false
+          },
+          "order" : {
+            "type" : "number",
+            "default" : 0
+          },
+          "icon" : {
+            "type" : "string"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "SpecialHours" : {
+        "title" : "SpecialHours",
+        "type" : "object",
+        "properties" : {
+          "openTime" : {
+            "type" : "string"
+          },
+          "closeTime" : {
+            "type" : "string"
+          }
+        }
+      },
+      "ClosureDate" : {
+        "title" : "ClosureDate",
+        "type" : "object",
+        "required" : [ "date" ],
+        "properties" : {
+          "_id" : {
+            "type" : "string"
+          },
+          "date" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "reason" : {
+            "type" : "string",
+            "default" : ""
+          },
+          "hasSpecialHours" : {
+            "type" : "boolean",
+            "default" : false
+          },
+          "specialHours" : {
+            "$ref" : "#/components/schemas/SpecialHours"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "Font" : {
+        "title" : "Font",
+        "type" : "object",
+        "required" : [ "name", "url", "public_id", "format", "originalName" ],
+        "properties" : {
+          "_id" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "url" : {
+            "type" : "string"
+          },
+          "public_id" : {
+            "type" : "string"
+          },
+          "format" : {
+            "type" : "string",
+            "enum" : [ "ttf", "otf", "woff", "woff2" ]
+          },
+          "originalName" : {
+            "type" : "string"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "Notification" : {
+        "title" : "Notification",
+        "type" : "object",
+        "required" : [ "type", "message" ],
+        "properties" : {
+          "_id" : {
+            "type" : "string"
+          },
+          "type" : {
+            "type" : "string",
+            "enum" : [ "low_stock", "pickup_ready", "payment_failed", "info", "system_alert" ]
+          },
+          "message" : {
+            "type" : "string"
+          },
+          "metadata" : {
+            "type" : "object",
+            "additionalProperties" : true,
+            "default" : { }
+          },
+          "isRead" : {
+            "type" : "boolean",
+            "default" : false
+          },
+          "createdAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "OrderCustomerLocation" : {
+        "title" : "OrderCustomerLocation",
+        "type" : "object",
+        "properties" : {
+          "lat" : {
+            "type" : "number"
+          },
+          "lng" : {
+            "type" : "number"
+          },
+          "geocodedAddress" : {
+            "type" : "string"
+          },
+          "mapScreenshot" : {
+            "type" : "string"
+          }
+        }
+      },
+      "OrderCustomer" : {
+        "title" : "OrderCustomer",
+        "type" : "object",
+        "required" : [ "fullName", "email", "phone", "address" ],
+        "properties" : {
+          "fullName" : {
+            "type" : "string"
+          },
+          "email" : {
+            "type" : "string",
+            "format" : "email"
+          },
+          "phone" : {
+            "type" : "string"
+          },
+          "address" : {
+            "type" : "string"
+          },
+          "reference" : {
+            "type" : "string"
+          },
+          "additionalInstructions" : {
+            "type" : "string"
+          },
+          "location" : {
+            "$ref" : "#/components/schemas/OrderCustomerLocation"
+          }
+        }
+      },
+      "PickupDetails" : {
+        "title" : "PickupDetails",
+        "type" : "object",
+        "properties" : {
+          "date" : {
+            "type" : "string"
+          },
+          "time" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Order" : {
+        "title" : "Order",
+        "type" : "object",
+        "required" : [ "orderNumber", "customer", "subtotal", "total" ],
+        "properties" : {
+          "_id" : {
+            "type" : "string"
+          },
+          "orderNumber" : {
+            "type" : "string"
+          },
+          "customer" : {
+            "$ref" : "#/components/schemas/OrderCustomer"
+          },
+          "subtotal" : {
+            "type" : "number"
+          },
+          "shippingCost" : {
+            "type" : "number",
+            "default" : 0
+          },
+          "total" : {
+            "type" : "number"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "pending", "processing", "shipped", "delivered", "cancelled" ],
+            "default" : "pending"
+          },
+          "user" : {
+            "type" : "string",
+            "nullable" : true,
+            "description" : "ObjectId de referencia al modelo User."
+          },
+          "deliveryMethod" : {
+            "type" : "string",
+            "enum" : [ "delivery", "pickup", "pos" ],
+            "default" : "delivery"
+          },
+          "pickupDetails" : {
+            "$ref" : "#/components/schemas/PickupDetails"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "ProductVariant" : {
+        "title" : "ProductVariant",
+        "type" : "object",
+        "required" : [ "stock" ],
+        "properties" : {
+          "_id" : {
+            "type" : "string"
+          },
+          "size" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "color" : {
+            "type" : "string",
+            "nullable" : true
+          },
+          "stock" : {
+            "type" : "number",
+            "minimum" : 0,
+            "default" : 0
+          },
+          "images" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            },
+            "default" : [ ]
+          },
+          "sku" : {
+            "type" : "string"
+          },
+          "stockZeroAt" : {
+            "type" : "string",
+            "format" : "date-time",
+            "nullable" : true
+          }
+        }
+      },
+      "Product" : {
+        "title" : "Product",
+        "type" : "object",
+        "required" : [ "name", "description", "price", "images", "category" ],
+        "properties" : {
+          "_id" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "price" : {
+            "type" : "number",
+            "minimum" : 0
+          },
+          "originalPrice" : {
+            "type" : "number",
+            "minimum" : 0
+          },
+          "images" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "category" : {
+            "type" : "string",
+            "description" : "ObjectId de referencia al modelo Category."
+          },
+          "categorySlug" : {
+            "type" : "string"
+          },
+          "subcategory" : {
+            "type" : "string"
+          },
+          "sizes" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            },
+            "default" : [ ]
+          },
+          "colors" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            },
+            "default" : [ ]
+          },
+          "stock" : {
+            "type" : "number",
+            "minimum" : 0,
+            "default" : 0
+          },
+          "hasVariants" : {
+            "type" : "boolean",
+            "default" : false
+          },
+          "variants" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ProductVariant"
+            }
+          },
+          "brand" : {
+            "type" : "string"
+          },
+          "rating" : {
+            "type" : "number",
+            "minimum" : 0,
+            "maximum" : 5,
+            "default" : 0
+          },
+          "proveedor" : {
+            "type" : "string"
+          },
+          "importe" : {
+            "type" : "number",
+            "minimum" : 0
+          },
+          "taxes" : {
+            "type" : "number",
+            "minimum" : 0,
+            "default" : 0
+          },
+          "impuestosImportacion" : {
+            "type" : "number",
+            "minimum" : 0,
+            "default" : 0
+          },
+          "flete" : {
+            "type" : "number",
+            "minimum" : 0,
+            "default" : 0
+          },
+          "costo" : {
+            "type" : "number",
+            "minimum" : 0
+          },
+          "paraTienda" : {
+            "type" : "boolean",
+            "default" : true
+          },
+          "location" : {
+            "type" : "string"
+          },
+          "barcode" : {
+            "type" : "string"
+          },
+          "stockZeroAt" : {
+            "type" : "string",
+            "format" : "date-time",
+            "nullable" : true
+          },
+          "createdAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "Setting" : {
+        "title" : "Setting",
+        "type" : "object",
+        "required" : [ "key", "value" ],
+        "properties" : {
+          "_id" : {
+            "type" : "string"
+          },
+          "key" : {
+            "type" : "string"
+          },
+          "value" : {
+            "type" : "boolean"
+          },
+          "createdAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "StoreHours" : {
+        "title" : "StoreHours",
+        "type" : "object",
+        "required" : [ "day" ],
+        "properties" : {
+          "_id" : {
+            "type" : "string"
+          },
+          "day" : {
+            "type" : "integer",
+            "minimum" : 0,
+            "maximum" : 6,
+            "description" : "0 = Domingo ... 6 = Sábado."
+          },
+          "openTime" : {
+            "type" : "string",
+            "default" : "07:00"
+          },
+          "closeTime" : {
+            "type" : "string",
+            "default" : "19:00"
+          },
+          "closed" : {
+            "type" : "boolean",
+            "default" : false
+          },
+          "createdAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "User" : {
+        "title" : "User",
+        "type" : "object",
+        "required" : [ "email", "password" ],
+        "properties" : {
+          "_id" : {
+            "type" : "string"
+          },
+          "email" : {
+            "type" : "string",
+            "format" : "email"
+          },
+          "firstName" : {
+            "type" : "string"
+          },
+          "lastName" : {
+            "type" : "string"
+          },
+          "phone" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "password" : {
+            "type" : "string",
+            "format" : "password",
+            "minLength" : 6,
+            "description" : "En una implementación real este campo no debería incluirse en las respuestas."
+          },
+          "role" : {
+            "type" : "string",
+            "enum" : [ "user", "admin", "seller" ],
+            "default" : "user"
+          },
+          "gender" : {
+            "type" : "string",
+            "enum" : [ "masculino", "femenino", "prefiero no decirlo", "otro" ],
+            "default" : "prefiero no decirlo"
+          },
+          "birthDate" : {
+            "type" : "string",
+            "format" : "date"
+          },
+          "wishlist" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            },
+            "description" : "ObjectIds de referencia al modelo Product."
+          },
+          "isVerified" : {
+            "type" : "boolean",
+            "default" : false
+          },
+          "acceptedTerms" : {
+            "type" : "boolean",
+            "default" : false
+          },
+          "createdAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "updatedAt" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "Error" : {
+        "title" : "Error",
+        "type" : "object",
+        "properties" : {
+          "message" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}
